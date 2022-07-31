@@ -1,0 +1,49 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% contacts.forEach(function(contact, index){ %>
+                <tr>
+                    <th scope="row">
+                        <%= contact.id %>
+                    </th>
+                    <td>
+                        <%= contact.name %>
+                    </td>
+                    <td>
+                        <%= contact.contact %>
+                    </td>
+                    <td>
+                        <!-- make View button to detail page -->
+                        <a class="nav-link" href="/contact/<%= contact.id %>">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#exampleModal">
+                                View
+                            </button>
+                        </a>
+                        <!-- make edit button to edit -->
+                        <a class="nav-link" href="/contact/edit/<%= contact.id %>">
+                            <button type="button" class="btn btn-warning">
+                                Edit
+                            </button>
+                        </a>
+                        <!-- make delete button get to contact/delete-->
+                        <a class="nav-link" href="/contact/delete/<%= contact._id %>">
+                            <button type="button" class="btn btn-danger" data-toggle="modal"
+                                data-target="#exampleModal">
+                                Delete
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+</div>
